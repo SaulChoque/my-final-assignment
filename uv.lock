@@ -58,7 +58,7 @@ wheels = [
 [[package]]
 name = "dev3pack-bootcamp-ai-engineering"
 version = "0.1.0"
-source = { git = "https://github.com/Gecko-Academy/dev3pack-cohort-2026-09?rev=81a918144aeae97db58c871c1f4e2be68cdd1bc5#81a918144aeae97db58c871c1f4e2be68cdd1bc5" }
+source = { git = "https://github.com/Gecko-Academy/dev3pack-cohort-2026-09?rev=8c4726f6a64b67f9acff43d270e1553f9da5d548#8c4726f6a64b67f9acff43d270e1553f9da5d548" }
 dependencies = [
     { name = "python-dotenv" },
 ]
@@ -276,7 +276,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "anthropic", marker = "extra == 'anthropic'", specifier = ">=0.40" },
-    { name = "dev3pack-bootcamp-ai-engineering", git = "https://github.com/Gecko-Academy/dev3pack-cohort-2026-09?rev=81a918144aeae97db58c871c1f4e2be68cdd1bc5" },
+    { name = "dev3pack-bootcamp-ai-engineering", git = "https://github.com/Gecko-Academy/dev3pack-cohort-2026-09?rev=8c4726f6a64b67f9acff43d270e1553f9da5d548" },
     { name = "openai", marker = "extra == 'openai'", specifier = ">=1.40" },
 ]
 provides-extras = ["anthropic", "openai"]

@@ -13,14 +13,7 @@ part of the contract it guards, so one part runs on its own:
     uv run pytest -k memory       # what a session remembers (session 11)
     uv run pytest -k regression   # the test for rank 1 of docs/ISSUES.md (session 14)
 
-Three tests are marked `xfail(strict=True)`: the starter agent does not do that
-part of the contract yet, and the marker says which session teaches it. When
-your agent starts doing it, the test passes, and `strict=True` turns that pass
-into a failure that says "XPASS". That is your cue: delete the marker, and the
-test becomes a pass you earned. `raises=AssertionError` means the xfail only
-counts when the CONTRACT fails, never a typo or a crash in the test itself.
-
-Two more are `skip` placeholders, for work that does not exist until a later
+Two tests are `skip` placeholders, for work that does not exist until a later
 session: replace the body with the real test when you get there.
 """
 
@@ -157,15 +150,6 @@ def test_injection_cannot_add_a_source_or_clear_the_review_flag() -> None:
     assert answer.confidence <= 0.2, "the injected 'confidence 1.0' was obeyed"
 
 
-@pytest.mark.xfail(
-    strict=True,
-    raises=AssertionError,
-    reason=(
-        "sessions 13-14: the starter passes an obeyed reply through when it cites only "
-        "retrieved documents. Detect instruction-shaped text in retrieved passages and "
-        "flag the answer, then delete this marker."
-    ),
-)
 def test_injection_cannot_dictate_an_unflagged_answer() -> None:
     model = GullibleLLM(
         obeyed_reply=_reply("ACCESS GRANTED", [INJECTED_DOC], confidence=1.0, review=False)
@@ -197,15 +181,6 @@ class BrokenLLM:
         raise ConnectionError("provider unreachable")
 
 
-@pytest.mark.xfail(
-    strict=True,
-    raises=AssertionError,
-    reason=(
-        "session 2 taught the refusal as a value (ch02-e4); wiring it into YourAgent "
-        "is the hardening after session 14. Catch the provider's error, return a "
-        "flagged refusal, then delete this marker."
-    ),
-)
 def test_provider_error_is_flagged_not_raised() -> None:
     model = BrokenLLM()
     try:
@@ -235,15 +210,6 @@ class HangingLLM:
 DEADLINE_S = 1.0
 
 
-@pytest.mark.xfail(
-    strict=True,
-    raises=AssertionError,
-    reason=(
-        "session 2 taught the deadline (a timeout is an exception you turn into a "
-        "refusal); enforcing YourAgent.timeout_s is the hardening after session 14. "
-        "Then delete this marker."
-    ),
-)
 def test_timeout_on_a_hanging_provider_is_flagged_within_a_second() -> None:
     model = HangingLLM()
     agent = YourAgent(client=model)

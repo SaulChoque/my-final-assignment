@@ -11,7 +11,7 @@ dependencies = [
   # the grader your CI runs is checked out at the same commit.
   # To move to a newer course release, change the commit here AND in
   # .github/workflows/check.yml, then `uv sync`.
-  "dev3pack-bootcamp-ai-engineering @ git+https://github.com/Gecko-Academy/dev3pack-cohort-2026-09@81a918144aeae97db58c871c1f4e2be68cdd1bc5",
+  "dev3pack-bootcamp-ai-engineering @ git+https://github.com/Gecko-Academy/dev3pack-cohort-2026-09@8c4726f6a64b67f9acff43d270e1553f9da5d548",
 ]
 
 [project.optional-dependencies]

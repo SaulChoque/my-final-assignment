@@ -113,4 +113,4 @@ showcase honest about which parts are yours. Delete the section if none. -->
 | `docs/ISSUES.md` | The ranked issue list (session 9, kept until 14) |
 
 Built during the Dev3Pack AI Engineering bootcamp, on the course package at
-commit `81a918144aeae97db58c871c1f4e2be68cdd1bc5` of https://github.com/Gecko-Academy/dev3pack-cohort-2026-09.
+commit `8c4726f6a64b67f9acff43d270e1553f9da5d548` of https://github.com/Gecko-Academy/dev3pack-cohort-2026-09.
